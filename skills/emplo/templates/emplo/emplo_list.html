@@ -1,0 +1,40 @@
+{% extends "main/layout.html" %}
+{% block title %} Список {% endblock %}
+{% block content %}
+    <div class="features">
+        <h1 color="white">Список</h1>
+        <a href="{% url 'create-emplo' %}" ><button class="btn btn-info"><i class="fas fa-plus-circle"></i>Добавить</button></a>
+
+    {% if data %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Имя</th>
+                    <th>Должность</th>
+                    <th>Уровень</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Проходим по каждому объекту в данных -->
+                {% for item in data %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.position }}</td>
+                        <td>{{ item.level }}</td>
+
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Нет данных для отображения.</p>
+    {% endif %}
+    </div>
+
+{% endblock content %}

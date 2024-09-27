@@ -1,0 +1,15 @@
+{% extends "main/layout.html" %}
+{% block title %} Форма по добавлению сотрудника {% endblock %}
+{% block content %}
+    <div class="features">
+        <h1>Форма по добавлению сотрудника</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form.name}}<br>
+            {{form.position}}<br>
+            {{form.level}}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Сохранить</button>
+        </form>
+    </div>
+{% endblock %}
