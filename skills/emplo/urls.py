@@ -11,5 +11,5 @@ urlpatterns = [
     path('mmm/', views.emplo_list_view, name='emplo-list'),
     path('ggg/', views.emplo_list_ggg, name='emplo-list-ggg'),
     path('ggg/edit/<int:pk>/', views.edit_emplo_ggg, name='edit-emplo-ggg'),
-    path('ggg/edit_es/<int:pk>/', views.edit_es, name='edit_es'),
+    # path('ggg/edit_es/<int:pk>/', views.edit_es, name='edit_es'),
 ]

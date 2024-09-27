@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 def index(request):
     data = {
-        'title':"О системе",
+        'title':"О программе",
     }
     return render(request, 'main/index.html', data)
 

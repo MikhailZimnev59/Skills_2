@@ -3,7 +3,9 @@ from django.db import models
 class Employee(models.Model):
     name = models.CharField('Имя', max_length=20, default='')
     position = models.CharField('Должность', max_length=20, default='')
+    skill = models.TextField('Навыки', default = '')
     level = models.CharField('Уровень', max_length = 5, default='')
+    fit_level = models.FloatField('Соответствие', default=0)
 
     class Meta:
         verbose_name="Сотрудник"
@@ -13,7 +15,7 @@ class Employee(models.Model):
         return f"/emplo/{self.id}"
 
     def __str__(self):
-        return f"{self.name}:{self.level}"
+        return f"{self.name}:{self.position}"
 
 # class ES(models.Model):
 #     emplo_id = models.IntegerField()

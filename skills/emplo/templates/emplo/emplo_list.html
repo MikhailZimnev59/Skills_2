@@ -3,7 +3,6 @@
 {% block content %}
     <div class="features">
         <h1 color="white">Список</h1>
-        <a href="{% url 'create-emplo' %}" ><button class="btn btn-info"><i class="fas fa-plus-circle"></i>Добавить</button></a>
 
     {% if data %}
         <table border="1">
@@ -13,6 +12,8 @@
                     <th>Имя</th>
                     <th>Должность</th>
                     <th>Уровень</th>
+                    <th>Навыки</th>
+                    <th>Уровень соответствия</th>
 
 
 
@@ -26,6 +27,8 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.position }}</td>
                         <td>{{ item.level }}</td>
+                        <td>{{ item.skill }}</td>
+                        <td>{{ item.fit_level }}%</td>
 
 
                     </tr>

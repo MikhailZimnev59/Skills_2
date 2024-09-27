@@ -4,7 +4,7 @@ from django.forms import ModelForm, TextInput, DateTimeInput, Textarea
 class EmployeeForm(ModelForm):
     class Meta:
         model = Employee
-        fields = ['name', 'position', 'level']
+        fields = ['name', 'position', 'skill']
         widgets = {
             "name": TextInput(attrs= {
                 'class':'form-control',
@@ -14,25 +14,10 @@ class EmployeeForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Должность'
             }),
-            "level": TextInput(attrs={
+            "skill": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Уровень'
+                'placeholder': 'Навыки'
             }),
 
+
         }
-# class ESForm(ModelForm):
-#     class Meta:
-#         model=ES
-#         fields = ['emplo_id', 'skill_id', 'level']
-#         widgets = {
-#             # "emplo_id": I
-#             "position": TextInput(attrs={
-#                 'class': 'form-control',
-#                 'placeholder': 'Должность'
-#             }),
-#             "level": TextInput(attrs={
-#                 'class': 'form-control',
-#                 'placeholder': 'Уровень'
-#             }),
-#
-#         }

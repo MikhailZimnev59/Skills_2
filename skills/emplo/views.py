@@ -4,21 +4,6 @@ from .forms import EmployeeForm
 from django.views.generic import DetailView, UpdateView, DeleteView
 from .serializers import EmployeeSerializer
 
-def edit_es(request, pk):
-    emplo = Employee.objects.get(pk=pk)
-    if request.method == 'POST':
-        form = EForm(request.POST, instance=emplo)
-        if form.is_valid():
-            form.save()
-            return redirect('emplo-list-ggg')
-    else:
-        form = EmployeeForm(instance=emplo)
-    context = {
-            'form': form,
-            'product': emplo
-    }
-    return render(request, 'emplo/edit_emplo_ggg.html', context)
-
 
 def emplo_list_ggg(request):
     products = Employee.objects.all()
@@ -55,9 +40,19 @@ def edit_emplo_ggg(request, pk):
     }
     return render(request, 'emplo/edit_emplo_ggg.html', context)
 
+def count_fit(emp_skill, skill_req):
+    e = [i.strip() for i in emp_skill.split(',')]
+    s = [i.strip() for i in skill_req.split(',')]
+    return 0 if not s else round(sum(i in e for i in s) / len(s) * 100, 1)
+
 def emplo_list_view(request):
-    # Получаем все объекты из базы данных
+
+    skill_req = 'Python, Django, CSS'
     queryset = Employee.objects.all()
+    for emp in queryset:
+        emp.fit_level = count_fit(emp.skill, skill_req)
+        emp.save()
+    queryset = Employee.objects.order_by('-fit_level')
 
     # Сериализуем данные
     serializer = EmployeeSerializer(queryset, many=True)
@@ -103,3 +98,18 @@ def create(request):
         'error': error,
     }
     return render(request, 'emplo/create_emplo.html', data)
+
+# def edit_es(request, pk):
+#     emplo = Employee.objects.get(pk=pk)
+#     if request.method == 'POST':
+#         form = EForm(request.POST, instance=emplo)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('emplo-list-ggg')
+#     else:
+#         form = EmployeeForm(instance=emplo)
+#     context = {
+#             'form': form,
+#             'product': emplo
+#     }
+#     return render(request, 'emplo/edit_emplo_ggg.html', context)
