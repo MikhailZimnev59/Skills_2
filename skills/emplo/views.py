@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Employee
+from .models import Employee, SearchString
 from .forms import EmployeeForm
 from django.views.generic import DetailView, UpdateView, DeleteView
 from .serializers import EmployeeSerializer
@@ -46,8 +46,8 @@ def count_fit(emp_skill, skill_req):
     return 0 if not s else round(sum(i in e for i in s) / len(s) * 100, 1)
 
 def emplo_list_view(request):
-
-    skill_req = 'Python, Django, CSS'
+    queryset = SearchString.objects.all()
+    skill_req = 'No info' if not queryset else queryset[0].seastr
     queryset = Employee.objects.all()
     for emp in queryset:
         emp.fit_level = count_fit(emp.skill, skill_req)

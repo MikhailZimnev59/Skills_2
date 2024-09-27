@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from .models import Employee
+from .models import Employee, SearchString
 
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
         fields = ['id', 'name', 'position', 'skill', 'level', 'fit_level']
+
+class SearchString(serializers.ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = ['seastr']

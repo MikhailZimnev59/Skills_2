@@ -17,10 +17,11 @@ class Employee(models.Model):
     def __str__(self):
         return f"{self.name}:{self.position}"
 
-# class ES(models.Model):
-#     emplo_id = models.IntegerField()
-#     skill_id = models.IntegerField()
-#     level = models.CharField('Level', max_length=5, default='')
-#
-#     def __str__(self):
-#         return f"{self.emplo_id}{self.skill_id}{self.level}"
+class SearchString(models.Model):
+    seastr = models.TextField('Поиск', default='')
+    class Meta:
+        verbose_name = "Поиск"
+        verbose_name_plural = 'Поиск'
+
+    def __str__(self):
+        return self.seastr
