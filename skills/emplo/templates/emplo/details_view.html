@@ -4,6 +4,7 @@
     <div class="features">
         <h1>{{ article.name }}</h1>
         <p>{{ article.position }}</p>
+        <p>{{ article.level }}</p>
         <p>{{ article.skill }}</p>
         <a href="{% url 'emplo-update' article.id %}" class="btn btn-info">Редактировать</a>
         <a href="{% url 'emplo-delete' article.id %}" class="btn btn-danger">Удалить</a>

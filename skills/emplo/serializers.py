@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Employee, SearchString
+from .models import Employee, SearchString, Employee1
 
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -8,5 +8,10 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
 class SearchString(serializers.ModelSerializer):
     class Meta:
-        model = Employee
+        model = SearchString
         fields = ['seastr']
+
+class EmployeeSerializer1(serializers.ModelSerializer):
+    class Meta:
+        model = Employee1
+        fields = ['id', 'name', 'position', 'skill', 'level', 'fit_level']
