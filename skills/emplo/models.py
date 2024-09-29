@@ -39,6 +39,16 @@ class SearchString(models.Model):
     class Meta:
         verbose_name = "Поиск"
         verbose_name_plural = 'Поиск'
-
+    def get_absolute_url(self):
+        return f"/emplo/mmm"
     def __str__(self):
         return self.seastr
+
+
+class Good(models.Model):
+    name = models.CharField(max_length = 50)
+    height = models.IntegerField()
+    width = models.IntegerField()
+    diameter = models.IntegerField()
+    def __str__(self):
+        return self.name
