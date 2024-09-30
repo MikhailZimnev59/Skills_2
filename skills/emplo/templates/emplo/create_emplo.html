@@ -2,14 +2,37 @@
 {% block title %} Ввод нового сотрудника {% endblock %}
 {% block content %}
     <div class="features">
-        <h1>Ввод нового сотрудника_</h1>
+        <h1>Ввод нового сотрудника</h1>
         <form method="post">
             {% csrf_token %}
-            {{form.name}}<br>
-            {{form.position}}<br>
-            {{form.level}}<br>
-            {{form.skill}}<br>
-            <span>{{ error }}</span>
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Поле</th>
+                    <th>Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Имя:</td>
+                    <td>{{ form.name }}</td>
+                </tr>
+                <tr>
+                    <td>Должность:</td>
+                    <td>{{ form.position }}</td>
+                </tr>
+                <tr>
+                    <td>Уровень:</td>
+                    <td>{{ form.level }}</td>
+                </tr>
+                <tr>
+                    <td>Навыки:</td>
+                    <td>{{ form.skill }}</td>
+                </tr>
+            </tbody>
+        </table>
+
             <button class="btn btn-success" type="submit">Сохранить</button>
         </form>
     </div>

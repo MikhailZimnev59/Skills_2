@@ -164,12 +164,30 @@ class EmploDeleteView(DeleteView):
     template_name = 'emplo/emplo_delete.html'
 
 def create(request):
+    print('create')
     error=''
     if request.method == 'POST':
         form = EmployeeForm1(request.POST)
         if form.is_valid():
             form.save()
             return redirect('emplo-home')
+        else:
+            error = 'Форма была неверной'
+
+    form = EmployeeForm1()
+    data = {
+        'form': form,
+        'error': error,
+    }
+    return render(request, 'emplo/create_emplo.html', data)
+def create_ggg(request):
+    print('create_ggg')
+    error=''
+    if request.method == 'POST':
+        form = EmployeeForm1(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('emplo-list-ggg')
         else:
             error = 'Форма была неверной'
 

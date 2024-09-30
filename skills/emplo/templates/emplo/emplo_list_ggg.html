@@ -1,6 +1,6 @@
 {% extends "main/layout.html" %}
 {% block title %}
-        <title>Персонал</title>
+    Персонал
 {% endblock %}
 
 <!-- product_list.html -->
@@ -9,14 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 {% block content %}
-    <div class="features">
 
-        <h1>Список сотрудников</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Добавить</button>
-        </form>
+    <div class="features">
+        <h2>Список сотрудников</h2>
+        <a href="{% url 'create-emplo-ggg' %}" ><button class="btn btn-info"><i class="fas fa-plus-circle"></i>Добавить</button></a>
 
         <table class="table mt-4">
             <thead>

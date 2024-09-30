@@ -33,29 +33,11 @@ class EmployeeForm1(ModelForm):
     class Meta:
         model = Employee1
         fields = ['name', 'position', 'level', 'skill']
-        name = CharField(label='Имя', max_length=5, initial='Имя')
-        position = CharField(label='Должность', initial='Должность')
-        level = CharField(label='Уровень', initial='0')
-        skill = CharField(label='Навыки', widget=Textarea, initial='Навыки через запятую', help_text='Введите навыки, разделенные запятыми')
+        name = CharField(label='Имя', max_length=20, initial='Имя')
+        position = CharField(label='Должность', max_length=20, initial='Должность')
+        level = CharField(label='Уровень', max_length=5, initial='0')
+        skill = CharField(label='Навыки',  max_length=50, initial='Навыки через запятую')
 
-        # widgets = {
-        #     "name": TextInput(attrs= {
-        #         'class':'form-control',
-        #     }),
-        #     "position": TextInput(attrs={
-        #         'class': 'form-control',
-        #     }),
-        #     "level": TextInput(attrs={
-        #         'class': 'form-control',
-        #     }),
-        #     "skill": TextInput(attrs={
-        #         'class': 'form-control',
-        #     }),
-        # }
-# class SearchStringForm(ModelForm):
-#     class Meta:
-#         model = SearchString
-#         seastr = CharField()
 
 class SearchForm(ModelForm):
     class Meta:
@@ -64,8 +46,6 @@ class SearchForm(ModelForm):
         #seastr = CharField(label='Search', max_length=100)
 
 from django import forms
-from django.core import validators
-from .models import Good
 
 def check_for_positive(value):
     if value < 0:

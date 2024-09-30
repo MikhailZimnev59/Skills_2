@@ -1,0 +1,17 @@
+{% extends "main/layout.html" %}
+{% block title %} Ввод нового сотрудника {% endblock %}
+{% block content %}
+    <div class="features">
+        <h1>Ввод нового сотрудника</h1>
+        <form method="post">
+            {% csrf_token %}
+            
+            <p>Имя, фамилия: {{form.name}}</p>
+            <p>Должность : {{form.position}}</p>
+            <p>   Уровень : {{form.level}}</p>
+            <p>    Навыки : {{form.skill}}</p>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Сохранить</button>
+        </form>
+    </div>
+{% endblock %}

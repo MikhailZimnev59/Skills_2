@@ -2,15 +2,15 @@
 {% block title %} Персонал {% endblock %}
 {% block content %}
     <div class="features">
-        <h1>Сотрудники</h1>
+        <h2>Сотрудники</h2>
         <a href="{% url 'create-emplo' %}" ><button class="btn btn-info"><i class="fas fa-plus-circle"></i>Добавить</button></a>
         {% if emplo %}
             {% for el in emplo %}
                 <div class="alert alert-warning">
-                    <h3>{{el.name}}</h3>
-                    <p>{{el.position}}</p>
-                    <p>{{el.level}}</p>
-                    <p>{{el.skill}}</p>
+                    <h3>Имя: {{el.name}}</h3>
+                    <p>Должность: {{el.position}}</p>
+                    <p>Уровень: {{el.level}}</p>
+                    <p>Навыки: {{el.skill}}</p>
                     <a href="{% url 'emplo-detail' el.id %}" class="btn btn-warning">Детали</a>
                 </div>
             {% endfor %}

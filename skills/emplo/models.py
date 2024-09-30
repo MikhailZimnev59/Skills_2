@@ -1,9 +1,9 @@
 from django.db import models
 
 class Employee(models.Model):
-    name = models.CharField('Имя', max_length=5, default='')
-    position = models.CharField('Должность', max_length=5, default='')
-    skill = models.TextField('Навыки', default = '')
+    name = models.CharField('Имя', max_length=20, default='')
+    position = models.CharField('Должность', max_length=20, default='')
+    skill = models.CharField('Навыки', max_length=50, default = '')
     level = models.CharField('Уровень', max_length = 5, default='')
     fit_level = models.FloatField('Соответствие', default=0)
 
@@ -18,9 +18,9 @@ class Employee(models.Model):
         return f"{self.name}:{self.position}"
 
 class Employee1(models.Model):
-    name = models.CharField(max_length=5, default='')
-    position = models.CharField(max_length=5, default='')
-    skill = models.TextField(default = '')
+    name = models.CharField(max_length=20, default='')
+    position = models.CharField(max_length=20, default='')
+    skill = models.CharField(max_length=50, default = '')
     level = models.CharField(max_length = 5, default='')
     fit_level = models.FloatField(default=0)
 
