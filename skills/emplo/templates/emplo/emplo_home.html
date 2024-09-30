@@ -7,10 +7,34 @@
         {% if emplo %}
             {% for el in emplo %}
                 <div class="alert alert-warning">
-                    <h3>Имя: {{el.name}}</h3>
-                    <p>Должность: {{el.position}}</p>
-                    <p>Уровень: {{el.level}}</p>
-                    <p>Навыки: {{el.skill}}</p>
+
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Поле</th>
+                    <th>Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Имя:</td>
+                    <td>{{ el.name }}</td>
+                </tr>
+                <tr>
+                    <td>Должность:</td>
+                    <td>{{ el.position }}</td>
+                </tr>
+                <tr>
+                    <td>Уровень:</td>
+                    <td>{{ el.level }}</td>
+                </tr>
+                <tr>
+                    <td>Навыки:</td>
+                    <td>{{ el.skill }}</td>
+                </tr>
+            </tbody>
+        </table>
+
                     <a href="{% url 'emplo-detail' el.id %}" class="btn btn-warning">Детали</a>
                 </div>
             {% endfor %}

@@ -3,6 +3,7 @@
 {% block content %}
     <div class="features">
         <h2>Поисковый образ</h2>
+        <h4>Введите требуемые навыки (через запятые)</h4>
         <form method="post">
             {% csrf_token %}
             {{form.seastr}}<br><br>

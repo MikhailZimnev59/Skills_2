@@ -62,7 +62,7 @@ def search(request):
 #     return render(request, 'emplo/search.html', {'form': form, 'results': results})
 def emplo_list_ggg(request):
     print('emplo_list_ggg')
-    products = Employee1.objects.all()
+    products = Employee1.objects.order_by('name')
 
     if request.method == "POST":
         form = EmployeeForm1(request.POST)
@@ -148,13 +148,13 @@ def emplo_home(request):
 class EmploDetailView(DetailView):
     print('EmpoDetailView')
     model = Employee1
-    template_name = 'emplo/details_view.html'
+    template_name = 'emplo/emplo_details_view.html'
     context_object_name = 'article'
 
 class EmploUpdateView(UpdateView):
     print('EmpoUpdateView')
     model = Employee1
-    template_name = 'emplo/update.html'
+    template_name = 'emplo/emplo_update.html'
     form_class = EmployeeForm1
 
 class EmploDeleteView(DeleteView):
@@ -162,6 +162,7 @@ class EmploDeleteView(DeleteView):
     model = Employee1
     success_url = '/emplo/'
     template_name = 'emplo/emplo_delete.html'
+
 
 def create(request):
     print('create')
